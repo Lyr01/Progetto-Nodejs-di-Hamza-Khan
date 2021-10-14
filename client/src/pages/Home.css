@@ -1,0 +1,45 @@
+div {
+    background: linear-gradient(45deg, #264058, #1793e6);
+}
+
+.post {
+    width: 45%;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin:auto;
+    border: 4px solid lightgray;
+    line-height: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(45deg, #426b91, #194969);
+  
+    box-shadow: rgba(49, 45, 45, 0.288) 0px 2px 8px 0px;
+  }
+  
+  .post .title {
+    flex: 20%;
+    border-bottom: 4px solid lightgray;
+    background-color: dodgerblue;
+    display: grid;
+    place-content: center;
+    color: white;
+  }
+  
+  .post .body {
+    flex: 60%;
+    display: grid;
+    place-content: center;
+  }
+  
+  .post .footer {
+    flex: 20%;
+    border-top: 4px solid lightgray;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    background-color: dodgerblue;
+    color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
