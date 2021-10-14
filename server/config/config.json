@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "segnala_inquinamento",
+    "database": "",
     "host": "locahost",
     "dialect": "mysql"
   },
