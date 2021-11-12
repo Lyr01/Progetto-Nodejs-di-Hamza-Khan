@@ -87,7 +87,12 @@ Le librerie usate per questo progetto.
 clonare o installare la zip:
 -dal terminale entrare nella cartella client e server
 -fare npm install
--nella cartella server trovare la cartella config e settare il database
+-creare file .env con [DB_USERNAME = 
+DB_PASSWORD = 
+DB_DATABASE = 
+DB_TEST_DATABASE =
+DB_PRODUCTION_DATABASE =
+DB_HOST = ]
 -nella cartella server creare la cartella images
 -dal terminale entrare nella cartella client e server e fare npm start
 -aprire localhost:3000
