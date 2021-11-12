@@ -8,8 +8,8 @@ import axios from 'axios';
 import './Upload.css';
 
 function Upload() {
-    
-    const [image, setImage] = useState({});
+
+    const [image, setImage] = useState([]);
 
     let history = useHistory();
 
@@ -25,9 +25,11 @@ function Upload() {
 
     const handleFileInput = (e) => {
         // handle validations
-        const file = e.target.files[0];
-        if (file.size > 1024*1024){
-            alert("File size cannot exceed more than 1MB"); 
+        const file = e.target.files;
+        console.log(file.length)
+        if (file.length > 5){
+            alert("Please select max 5 files.");
+            e.preventDefault();
         }
         else {
             setImage(file);
@@ -41,19 +43,21 @@ function Upload() {
         formData.append("cognome", data.cognome);
         formData.append("title", data.title);
         formData.append("citta", data.citta);
-        formData.append("image", image);
+        for (let i = 0; i < image.length; i++) {
+            formData.append('image', image[i]);
+          }
         formData.append("descrizione", data.descrizione);
         formData.append("indirizzo", data.indirizzo);
 
-        axios.post("http://localhost:8080/upload", formData)
-        .then((res)=>{
-            history.push("/post");
-        })
+        if (image.length !== 0 && image.length <= 5) {
+            axios.post("http://localhost:8080/api/places", formData)
+            .then((res)=>{
+                history.push("/post");
+            })
+            history.push("/loading");
 
-        history.push("/loading");
-
-        if (!image.name) {
-            alert("Insert Image")
+        } else {
+            alert("Insert Image or Please select max 5 files.")
         }
       };
 
@@ -107,6 +111,7 @@ function Upload() {
                 accept="image/png, image/gif, image/jpeg" 
                 name="image"
                 onChange={handleFileInput}
+                multiple
                 />
 
                 <label>Descrizione:</label>

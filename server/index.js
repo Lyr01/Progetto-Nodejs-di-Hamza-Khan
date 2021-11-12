@@ -14,7 +14,7 @@ const db = require('./models');
 
 // Routers
 const imageRouter = require("./routes/Images");
-app.use("/upload", imageRouter);
+app.use("/api", imageRouter);
 
 db.sequelize.sync().then(() => {
     app.listen(8080, () => {

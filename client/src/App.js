@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from './pages/Home';
 import Upload from './pages/Upload';
 import Post from './pages/Post';
+import Images from './pages/Images';
 import Loading from './components/Loading/Loading'
 import Navbar from './components/Navbar/Navbar';
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/upload" exact component={Upload}/>
           <Route path="/post" exact component={Post}/>
           <Route path="/loading" exact component={Loading}/>
+          <Route path="/post/:id" exact component={Images}/>
         </Switch>
       </Router>
     </div>

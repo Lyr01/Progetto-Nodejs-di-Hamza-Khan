@@ -1,6 +1,11 @@
 module.exports = (sequelize, DataTypes) => {
 
     const Places = sequelize.define("Places", {
+        id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true,
+          },
         nome: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -17,10 +22,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        image: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
         descrizione: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -29,6 +30,13 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
-    })
+    });
+
+    Places.associate = models => {
+        Places.hasMany(models.Images, {
+            onDelete: "cascade",
+            foreignKey: 'place_id'
+        });
+    }
     return Places;
-}
+};
